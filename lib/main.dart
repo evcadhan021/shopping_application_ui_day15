@@ -1,7 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: HomePage(),
   ));
 }
@@ -137,6 +139,95 @@ class HomePage extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              const SizedBox(height: 20),
+              makeItem(
+                image: 'assets/images/one.jpg',
+                tag: 'red',
+              ),
+              makeItem(
+                image: 'assets/images/two.jpg',
+                tag: 'blue',
+              ),
+              makeItem(
+                image: 'assets/images/three.jpg',
+                tag: 'white',
+              ),
+              makeItem(
+                image: 'assets/images/four.jpg',
+                tag: 'white2',
+              ),
+              makeItem(
+                image: 'assets/images/five.jpg',
+                tag: 'green',
+              ),
+              makeItem(
+                image: 'assets/images/six.jpg',
+                tag: 'purple',
+              ),
+              makeItem(
+                image: 'assets/images/seven.jpg',
+                tag: 'bluegreen',
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget makeItem({image, tag}) {
+    return Hero(
+      tag: tag,
+      child: GestureDetector(
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 20),
+          height: 250,
+          width: double.infinity,
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            image: DecorationImage(
+              image: AssetImage(image),
+              fit: BoxFit.cover,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey[400] ?? Colors.grey,
+                blurRadius: 10,
+                spreadRadius: 1,
+              ),
+            ],
+          ),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Sneakers',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'Nike',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
               )
             ],
           ),
